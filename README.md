@@ -12,7 +12,17 @@ plugin, using the "recommended" ESLint, Typescript and React configurations to v
 React TSX files in `js/react`. Warnings will be presented, and errors will cause build failures.
 Errors include implicit *any* types, so `js/index.d.ts` needs to contain a declaration for a
 `Wasm` type, bundling the compiled and exported Wasm function that you intend to use in your
-React app, which the `Root` component property parameter must be declared as being.
+React app, which the `Root` component property parameter must be declared as having.
+
+```js
+// in js/index.d.ts
+type Wasm = {
+    hello: (string) => string,
+};
+
+// in js/react/Root.tsx
+export default function Root(props: { wasm: Wasm }): Element { // ...
+```
 
 <!--
 <p>
@@ -32,6 +42,10 @@ React app, which the `Root` component property parameter must be declared as bei
 4. `yarn start`
 
 For more information and tutorials, read the [README.md](https://github.com/rustwasm/rust-webpack-template) at the original repo.
+
+---
+
+## 🚵 Usage Details
 
 ### How to install
 
