@@ -1,2 +1,5 @@
-// Empty for now
-// Declare modules in here
+/* tslint:disable */
+/* eslint-disable */
+type Wasm = {
+    hello: (string) => string,
+};
